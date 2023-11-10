@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/bootstrap.css">
+    <link rel="stylesheet" href="./public/css/main.css">
+    <link rel="stylesheet" href="./public/bootstrap-icons/bootstrap-icons.css">
+    <title>KonnektSmartlife | </title>
+</head>
+<body>
+   
+        <div class="nav-head">
+            <div class="brand">
+                <h4>Konnekt Smartlife</h4>
+                <i class="bi bi-list" id="togglebtn"></i>
+            </div>
+            <div class="profile">
+                <div class="avatar">
+                    <img src="./public/img/avatar.png" alt="">
+                </div>
+                <div class="profile-name">
+                    <p>John Doe</p>
+                </div>
+            </div>
+        </div>
+    
+    <header class="">
+
+
+    <nav>
+        
+        <ul>
+           
+            <li><i class="bi bi-bar-chart"></i> Analytics</li>
+            <li><i class="bi bi-people"> </i> Employees</li>
+            <li><i class="bi bi-envelope"></i> Inbox <span>0</span></li>
+            <li><i class="bi bi-people"></i> Fixed Customers</li>
+            <li><i class="bi bi-box"></i> Profiles</li>
+            <li><i class="bi bi-cash"></i> Purchases</li>
+            <li><i class="bi bi-wifi-off"></i> Expiry</li>
+            <li><i class="bi bi-question-circle"></i> Help</li>
+            <li><i class="bi bi-gear"></i> Settings</li>
+        </ul>
+    </nav>
+    
+    </header>
+    <div class="container-fluid wrapper">
+        
+        <div class="container mt-3">
+            <div class="analytics-header">
+                <h3>Analytics</h3>
+                <div class="controls">
+                    <div class="duration-control">
+                        <div class="d-box" id="daily">Daily</div>
+                        <div class="d-box" id="weekly">Weekly</div>
+                        <div class="d-box"id = "monthy">Monthly</div>
+                    </div>
+                    <div class="today-date">
+                        <i class="bi bi-calendar-event"></i> <p>Jan, 2023 - Dec, 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="analytics-body">
+                <div class="overview">
+                    <div class="details">
+                        <p>Total Amount</p>
+                        <h3>Ksh.670,000</h3>
+                    </div>
+                    <div class="graph">
+                        <img src="./public/img/green.png" alt="">
+                    </div>
+                </div>
+                <div class="overview">
+                    <div class="details">
+                        <p>Total Users</p>
+                        <h3>7950</h3>
+                    </div>
+                    <div class="graph">
+                        <img src="./public/img/Chart.png" alt="">
+                    </div>
+                </div>
+                <div class="overview">
+                    <div class="details">
+                        <p>Total Purchases</p>
+                        <h3>3137</h3>
+                    </div>
+                    <div class="graph">
+                        <img src="./public/img/blue.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="analytics-chart">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="analytics-chart">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+    <script src="./public/jquery.js"></script>
+    <script src="./public/js/bootstrap.js"></script>
+    <script src="./public/js/index.js"></script>
+    <script src="./public/bootstrap-icons/bootstrap-icons.json"></script>
+</body>
+</html>
