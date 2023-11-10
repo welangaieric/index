@@ -10,6 +10,11 @@ control.forEach((e)=>{
     })
 })
 
+// animations
+const anime = document.querySelectorAll('.overview')
+anime.forEach((e)=>{
+
+})
 // ?chart
 
 const dailybtn = document.querySelector('#daily')
