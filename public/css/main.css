@@ -28,8 +28,8 @@ a{
 
 }
 h1,h2,h3,h4,h5,h6,p{
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 body{
     width: 100vw;
@@ -344,15 +344,17 @@ nav li span{
 
 }
 .banner-head i{
-    width: 10%;
+    width: 30%;
     height: 100%;
-    font-size: 16px;
+    font-size: 20px;
     /* border:rgb(15, 150, 56) solid; */
     color: var(--green);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    /* padding: 10px; */
+    margin-left: -10px !important;
+
 
 
 }
@@ -360,13 +362,15 @@ nav li span{
     font-size: 24px;
     font-weight: 300;
     text-align: center;
+  
     /* border:red solid; */
-    width: 90%;
+    width: 70%;
     height: 100%;
     color: var(--green);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    align-content: center;
+    text-align: left;
     padding: 10px;
 
 
@@ -472,4 +476,33 @@ legend{
     text-align: left;
     width: 90%;
 
+}
+
+
+@media screen and (min-width:768px) {
+    /* LOGINPAGE CSS */
+    .full{
+        flex-direction:row;
+    }
+    .welcome-banner{
+        width: 40%;
+        height: 100vh;
+    }
+    .banner-head{
+        height: 30px;
+    }
+    .banner-body{
+        height: 92%;
+        background-size: 70%;
+    }
+    .login{
+        width: 60%;
+        height: 100vh;
+    }
+    .form-group{
+        width: 50%;
+    }
+    .login-form a{
+        width: 50%;
+    }
 }
