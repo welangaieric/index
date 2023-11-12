@@ -1,18 +1,37 @@
 const express = require('express')
 require('dotenv').config({})
-const app = express()
 const morgan = require('morgan')
-var path = require('path')
-var rfs = require('rotating-file-stream')
+// var path = require('path')
+// var rfs = require('rotating-file-stream')
+const mysql = require('mysql2')
+// import mysql from 'mysql2'
+// import express from 'express'
+// import dotenv from 'dotenv'
+// import morgan from 'morgan'
+// import path from 'path'
+// import rfs from 'rotating-file-stream'
 const port = process.env.port
+const app = express()
 
 
-//  log app activity to a log file
-var accessLogStream = rfs.createStream('access.log', {
-    interval: '1d', // rotate daily
-    path: path.join(__dirname, 'log')
-  })
+
+// configurations
+const pool = mysql.createPool({
+    host:'120.0.0.1',
+    user:'root',
+    password:'',
+    database:'radius'
+}).promise()
+// dotenv.config({})
+
+const getTransactions = async function(){
+    
+    const [rows] = await pool.query('SELECT * FROM transactions')
+    rows
+}
+
    
+// db middleware 
 
 
 //server 
@@ -23,8 +42,8 @@ app.listen(port,()=>{
 // middlewares 
 app.use(express.static('public'))
 app.set('views','ejs')
-app.use(morgan('combined', { stream: accessLogStream }))// setup the logger
+app.use(morgan('combined'))// setup the logger
 
-app.get('/',(req,res)=>{
-    res.send('fuck im running')
+app.get('/',getTransactions,(req,res)=>{
+    res.send(rows)
 })

@@ -11,10 +11,7 @@ control.forEach((e)=>{
 })
 
 // animations
-const anime = document.querySelectorAll('.overview')
-anime.forEach((e)=>{
 
-})
 // ?chart
 
 const dailybtn = document.querySelector('#daily')
@@ -26,6 +23,7 @@ let gradient =ctx.createLinearGradient(0,0,0,400)
 gradient.addColorStop(0,'rgba(0,88,255,1)')
 gradient.addColorStop(0,'rgba(0,88,255,0.3)')
 let delayed;
+let Display =false
 
 dailybtn.addEventListener('click',()=>{
     
@@ -64,6 +62,10 @@ const config = {
     data:data,
     options:{
         responsive:true,
+        grid:{
+            display:Display
+
+        },
         animation: {
             onComplete: ()=>{
                 delayed = true
@@ -90,29 +92,4 @@ const config = {
 const myChart = new Chart(ctx,config)
 
 
-//   new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: '# of Votes',
-//         data: [12, 19, 3, 5, 2, 3],
-//         borderWidth: 1
-//       }]
-//     },
-//     options: {
-//         Animation:{
-//             tension:{
-//                 easing: 'linear',
-//                 to:0,
-                
-//             }
 
-//         },
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
-//   });
