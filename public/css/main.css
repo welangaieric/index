@@ -425,17 +425,19 @@ legend{
 }
 .form-group{
     width: 90%;
-    height: 50px;
+    /* height: 50px; */
     /* border: #0058ff solid; */
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    color: var(--green);
+    gap: 10px;
 
 }
 .form-group input{
     width: 100%;
-    height: 100%;
+    height:50px;
     background-color: var(--black);
     border: var(--green) 1px solid;
     border-radius: 8px;
@@ -462,4 +464,11 @@ legend{
 .subBtn:hover{
     background-color: var(--white) !important;
     color: var(--green);
+}
+.login-form a{
+    color: white;
+    text-decoration: underline;
+    text-align: left;
+    width: 90%;
+
 }
