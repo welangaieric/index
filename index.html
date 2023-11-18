@@ -32,68 +32,173 @@
         
         <ul>
            
-            <li class="links prevent-select"><i class="bi bi-bar-chart"></i> Analytics</li>
-            <li class="links prevent-select"><i class="bi bi-people"> </i> Employees</li>
-            <li class="links prevent-select"><i class="bi bi-envelope"></i> Inbox <span>0</span></li>
-            <li class="links prevent-select"><i class="bi bi-people"></i> Fixed Customers</li>
-            <li class="links prevent-select"><i class="bi bi-box"></i> Profiles</li>
-            <li class="links prevent-select"><i class="bi bi-cash"></i> Purchases</li>
-            <li class="links prevent-select"><i class="bi bi-wifi-off"></i> Expiry</li>
-            <li class="links prevent-select"><i class="bi bi-question-circle"></i> Help</li>
-            <li class="links prevent-select"><i class="bi bi-gear"></i> Settings</li>
+            <li class="links prevent-select" id="analytics"><i class="bi bi-bar-chart"></i> Analytics</li>
+            <li class="links prevent-select" id="employees"><i class="bi bi-people"> </i> Employees</li>
+            <li class="links prevent-select" id="inbox"><i class="bi bi-envelope"></i> Inbox <span>0</span></li>
+            <li class="links prevent-select" id="customers"><i class="bi bi-people"></i> Fixed Customers</li>
+            <li class="links prevent-select" id="profiles"><i class="bi bi-box"></i> Profiles</li>
+            <li class="links prevent-select" id="purchases"><i class="bi bi-cash"></i> Purchases</li>
+            <li class="links prevent-select" id="expiry"><i class="bi bi-wifi-off"></i> Expiry</li>
+            <li class="links prevent-select" id="help"><i class="bi bi-question-circle"></i> Help</li>
+            <li class="links prevent-select" id="logout"><i class="bi bi-box-arrow-left"></i> Log out</li>
         </ul>
     </nav>
     
     </header>
     <div class="container-fluid wrapper">
+        <div class="org">
+            
+        </div>
+        <div class="payments">
+        <div class="org">
+            
+        </div>
         
-        <div class="container mt-3 ">
-            <div class="analytics-header">
-                <h3>Analytics</h3>
-                <div class="controls">
-                    <div class="duration-control">
-                        <div class="d-box" id="daily">Daily</div>
-                        <div class="d-box" id="weekly">Weekly</div>
-                        <div class="d-box"id = "monthy">Monthly</div>
-                    </div>
-                    <div class="today-date">
-                        <i class="bi bi-calendar-event"></i> <p>Jan, 2023 - Dec, 2023</p>
+            <div class="container purchases">
+                <div class="payments-header">
+                    <h3>Purchases</h3>
+                    <div class="search-bar">
+                        <input type="text" class="search" placeholder="search">
+                        <i class="bi bi-search"></i>
+                        
                     </div>
                 </div>
+                <div class="payment-card">
+                    <ul class="header">
+                        <li >Ref Code</li>
+                        <li>Number</li>
+                        <li>Amount</li>
+                        <li>Time</li>
+                    </ul>
+                    <div class="data-card">
+                        <ul class="data ">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                        <ul class="data">
+                            <li>RK13NUOO39</li>
+                            <li>0712345678</li>
+                            <li>30</li>
+                            <li>11:30 am</li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="analytics-body">
-                <div class="overview">
-                    <div class="details animate">
-                        <p>Total Amount</p>
-                        <h3>Ksh.670,000</h3>
-                    </div>
-                    <div class="graph animate">
-                        <img src="./public/img/green.png" alt="">
-                    </div>
-                </div>
-                <div class="overview">
-                    <div class="details animate">
-                        <p>Total Users</p>
-                        <h3>7950</h3>
-                    </div>
-                    <div class="graph animate">
-                        <img src="./public/img/Chart.png" alt="">
+        </div>
+        <div class="analytics">
+            <div class="org"></div>
+            <div class="container analytic">
+                <div class="analytics-header">
+                    <h3>Analytics</h3>
+                    <div class="controls">
+                        <div class="duration-control">
+                            <div class="d-box" id="daily">Daily</div>
+                            <div class="d-box" id="weekly">Weekly</div>
+                            <div class="d-box"id = "monthy">Monthly</div>
+                        </div>
+                        <div class="today-date">
+                            <i class="bi bi-calendar-event"></i> <p>Jan, 2023 - Dec, 2023</p>
+                        </div>
                     </div>
                 </div>
-                <div class="overview">
-                    <div class="details animate">
-                        <p>Total Purchases</p>
-                        <h3>3137</h3>
+                <div class="analytics-body">
+                    <div class="overview">
+                        <div class="details animate">
+                            <p>Total Amount</p>
+                            <h3>Ksh.670,000</h3>
+                        </div>
+                        <div class="graph animate">
+                            <img src="./public/img/green.png" alt="">
+                        </div>
                     </div>
-                    <div class="graph animate">
-                        <img src="./public/img/blue.png" alt="">
+                    <div class="overview">
+                        <div class="details animate">
+                            <p>Total Users</p>
+                            <h3>7950</h3>
+                        </div>
+                        <div class="graph animate">
+                            <img src="./public/img/Chart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="overview">
+                        <div class="details animate">
+                            <p>Total Purchases</p>
+                            <h3>3137</h3>
+                        </div>
+                        <div class="graph animate">
+                            <img src="./public/img/blue.png" alt="">
+                        </div>
                     </div>
                 </div>
+                <div class="analytics-chart">
+                    <canvas id="myChart"></canvas>
+                </div> 
+            
             </div>
-            <div class="analytics-chart">
-                <canvas id="myChart"></canvas>
-            </div> 
-           
         </div>
        
 

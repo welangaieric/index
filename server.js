@@ -4,12 +4,6 @@ const morgan = require('morgan')
 // var path = require('path')
 // var rfs = require('rotating-file-stream')
 const mysql = require('mysql2')
-// import mysql from 'mysql2'
-// import express from 'express'
-// import dotenv from 'dotenv'
-// import morgan from 'morgan'
-// import path from 'path'
-// import rfs from 'rotating-file-stream'
 const port = process.env.port
 const app = express()
 
@@ -17,17 +11,21 @@ const app = express()
 
 // configurations
 const pool = mysql.createPool({
-    host:'120.0.0.1',
-    user:'root',
-    password:'',
+    host:'212.224.93.159',
+    user:'radius',
+    password:'konnekted@2023',
     database:'radius'
 }).promise()
 // dotenv.config({})
 
 const getTransactions = async function(){
+    const connection = pool.connect((err)=>{
+        if (err ) throw err
+        console.log('connected')
+    })
     
-    const [rows] = await pool.query('SELECT * FROM transactions')
-    rows
+    // const [rows] = await pool.query('SELECT * FROM transactions')
+    return connection;
 }
 
    
@@ -45,5 +43,5 @@ app.set('views','ejs')
 app.use(morgan('combined'))// setup the logger
 
 app.get('/',getTransactions,(req,res)=>{
-    res.send(rows)
+    res.send(connection)
 })

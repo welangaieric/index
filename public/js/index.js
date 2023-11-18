@@ -1,16 +1,66 @@
 const tbtn = $('#togglebtn')
 const nav =document.querySelector('header')
 const control = document.querySelectorAll('.d-box')
+const activeLinks = document.querySelectorAll('.links')
 tbtn.on('click',()=>{
     nav.classList.toggle('active')
 })
 control.forEach((e)=>{
+    e.addEventListener('click',(el)=>{
+        el.classList.toggle('active-cont')
+    })
+})
+activeLinks.forEach((e)=>{
     e.addEventListener('click',function(el){
-        this.classList.toggle('active-cont')
+       
     })
 })
 
 // animations
+const elements = document.querySelectorAll('.data')
+elements.forEach((e)=>e.classList.add('animate'))
+
+
+
+// display elements
+const display = document.querySelector('.wrapper')
+
+const analytics = document.querySelector('.analytics').innerHTML
+const employees = document.querySelector('.employees')
+const purchases = document.querySelector('.payments').innerHTML
+const profiles = document.querySelector('.profiles')
+const help = document.querySelector('.help')
+const expiry = document.querySelector('.expiry')
+const container = document.querySelector('.container')
+
+const customers = document.querySelector('.customers')
+const inbox = document.querySelector('.inbox')
+
+// display buttons
+const analyticsBtn = document.querySelector('#analytics')
+const employeesBtn = document.querySelector('#employees')
+const purchasesBtn = document.querySelector('#purchases')
+const profilesBtn = document.querySelector('#profiles')
+const helpBtn = document.querySelector('#help')
+const expiryBtn = document.querySelector('#expiry')
+const customersBtn = document.querySelector('#customers')
+const inboxBtn = document.querySelector('#inbox')
+
+// display function 
+const displayToDOM = function(el){
+    display.innerHTML=el
+
+
+}
+analyticsBtn.addEventListener('click',()=>displayToDOM(analytics))
+employeesBtn.addEventListener('click',()=>displayToDOM(employees))
+purchasesBtn.addEventListener('click',()=>displayToDOM(purchases))
+profilesBtn.addEventListener('click',()=>displayToDOM(analytics))
+customersBtn.addEventListener('click',()=>displayToDOM(analytics))
+helpBtn.addEventListener('click',()=>displayToDOM(analytics))
+inboxBtn.addEventListener('click',()=>displayToDOM(analytics))
+
+
 
 // ?chart
 
