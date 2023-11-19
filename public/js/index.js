@@ -23,123 +23,1127 @@ elements.forEach((e)=>e.classList.add('animate'))
 
 
 // display elements
-const display = document.querySelector('.wrapper')
+let display = document.querySelector('.wrapper')
 
-const analytics = document.querySelector('.analytics').innerHTML
-const employees = document.querySelector('.employees')
-const purchases = document.querySelector('.payments').innerHTML
-const profiles = document.querySelector('.profiles')
-const help = document.querySelector('.help')
-const expiry = document.querySelector('.expiry')
-const container = document.querySelector('.container')
+let analytics = document.querySelector('.analytics')
+let employees = document.querySelector('.employees')
+let purchases = document.querySelector('.payments')
+let profiles = document.querySelector('.profiles')
+let help = document.querySelector('.help')
+let expiry = document.querySelector('.expiry')
+let container = document.querySelector('.container')
 
-const customers = document.querySelector('.customers')
-const inbox = document.querySelector('.inbox')
+let customers = document.querySelector('.customers')
+let inbox = document.querySelector('.inbox')
 
 // display buttons
-const analyticsBtn = document.querySelector('#analytics')
-const employeesBtn = document.querySelector('#employees')
-const purchasesBtn = document.querySelector('#purchases')
-const profilesBtn = document.querySelector('#profiles')
-const helpBtn = document.querySelector('#help')
-const expiryBtn = document.querySelector('#expiry')
-const customersBtn = document.querySelector('#customers')
-const inboxBtn = document.querySelector('#inbox')
-
+let analyticsBtn = document.querySelector('#analytics')
+let employeesBtn = document.querySelector('#employees')
+let purchasesBtn = document.querySelector('#purchases')
+let profilesBtn = document.querySelector('#profiles')
+let helpBtn = document.querySelector('#help')
+let expiryBtn = document.querySelector('#expiry')
+let customersBtn = document.querySelector('#customers')
+let inboxBtn = document.querySelector('#inbox')
+let temp
 // display function 
 const displayToDOM = function(el){
     display.innerHTML=el
-
-
 }
-analyticsBtn.addEventListener('click',()=>displayToDOM(analytics))
-employeesBtn.addEventListener('click',()=>displayToDOM(employees))
-purchasesBtn.addEventListener('click',()=>displayToDOM(purchases))
-profilesBtn.addEventListener('click',()=>displayToDOM(analytics))
+
+analyticsBtn.addEventListener('click',()=>{
+  temp = `
+  <div class="org"></div>
+
+  <div class="analytics">
+  
+  <div class="container analytic">
+      <div class="analytics-header">
+          <h3>Analytics</h3>
+          <div class="controls">
+              <div class="duration-control">
+                  <div class="d-box" id="daily">Daily</div>
+                  <div class="d-box" id="weekly">Weekly</div>
+                  <div class="d-box"id = "monthy">Monthly</div>
+              </div>
+              <div class="today-date">
+                  <i class="bi bi-calendar-event"></i> <p>Jan, 2023 - Dec, 2023</p>
+              </div>
+          </div>
+      </div>
+      <div class="analytics-body">
+          <div class="overview">
+              <div class="details animate">
+                  <p>Total Amount</p>
+                  <h3>Ksh.670,000</h3>
+              </div>
+              <div class="graph animate">
+                  <img src="./public/img/green.png" alt="">
+              </div>
+          </div>
+          <div class="overview">
+              <div class="details animate">
+                  <p>Total Users</p>
+                  <h3>7950</h3>
+              </div>
+              <div class="graph animate">
+                  <img src="./public/img/Chart.png" alt="">
+              </div>
+          </div>
+          <div class="overview">
+              <div class="details animate">
+                  <p>Total Purchases</p>
+                  <h3>3137</h3>
+              </div>
+              <div class="graph animate">
+                  <img src="./public/img/blue.png" alt="">
+              </div>
+          </div>
+      </div>
+      <div class="analytics-chart">
+          <canvas id="myChart"></canvas>
+      </div> 
+  
+  </div>
+</div>
+  `
+  display.innerHTML = temp
+})
+employeesBtn.addEventListener('click',()=>{
+    temp = `
+    <div class="org"></div>
+
+    <div class="employees">
+    <div class="container purchases">
+        
+            <div class="payments-header">
+                <h3>Employees</h3>
+                <button class="btn bg-primary text-white" data-bs-toggle="modal" data-bs-target="#add-employee"><i class="bi bi-plus"></i> Add</button>
+
+                <div class="search-bar">
+                    <input type="text" class="search" placeholder="search">
+                    <i class="bi bi-search"></i>
+                    
+                </div>
+            </div>
+            <div class="payment-card">
+                <ul class="header">
+                    <li >Emp Name</li>
+                    <li>Number</li>
+                    <li>Role</li>
+                    <li>Actions</li>
+                </ul>
+                <div class="data-card">
+                    <ul class="data ">
+                        <li>Eric Welangai</li>
+                        <li>0712345678</li>
+                        <li>Software Engineer</li>
+                        <li class="action">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen"></i></a>
+                            <a href="#"><i class="bi bi-trash"></i></a>
+                        </li>
+                        <!-- Modal -->
+            <div class="modal  mt-5" id="add-employee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                <div class="col">
+                                    <input type="date" class="form-control" name="date" placeholder="Employment Date" required >
+                                </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+
+             <!-- Update Modal -->
+             <div class="modal" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+                    </ul>
+                    <ul class="data ">
+                        <li>Eric Welangai</li>
+                        <li>0712345678</li>
+                        <li>Software Engineer</li>
+                        <li class="action">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen"></i></a>
+                            <a href="#"><i class="bi bi-trash"></i></a>
+                        </li>
+                        <!-- Modal -->
+            <div class="modal  mt-5" id="add-employee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                <div class="col">
+                                    <input type="date" class="form-control" name="date" placeholder="Employment Date" required >
+                                </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+
+             <!-- Update Modal -->
+             <div class="modal" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+                    </ul>
+                    <ul class="data ">
+                        <li>Eric Welangai</li>
+                        <li>0712345678</li>
+                        <li>Software Engineer</li>
+                        <li class="action">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen"></i></a>
+                            <a href="#"><i class="bi bi-trash"></i></a>
+                        </li>
+                        <!-- Modal -->
+            <div class="modal  mt-5" id="add-employee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                <div class="col">
+                                    <input type="date" class="form-control" name="date" placeholder="Employment Date" required >
+                                </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+
+             <!-- Update Modal -->
+             <div class="modal" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+                    </ul>
+                    <ul class="data ">
+                        <li>Eric Welangai</li>
+                        <li>0712345678</li>
+                        <li>Software Engineer</li>
+                        <li class="action">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen"></i></a>
+                            <a href="#"><i class="bi bi-trash"></i></a>
+                        </li>
+                        <!-- Modal -->
+            <div class="modal  mt-5" id="add-employee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                <div class="col">
+                                    <input type="date" class="form-control" name="date" placeholder="Employment Date" required >
+                                </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+
+             <!-- Update Modal -->
+             <div class="modal" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+                    </ul>
+                    <ul class="data ">
+                        <li>Eric Welangai</li>
+                        <li>0712345678</li>
+                        <li>Software Engineer</li>
+                        <li class="action">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen"></i></a>
+                            <a href="#"><i class="bi bi-trash"></i></a>
+                        </li>
+                        <!-- Modal -->
+            <div class="modal  mt-5" id="add-employee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                <div class="col">
+                                    <input type="date" class="form-control" name="date" placeholder="Employment Date" required >
+                                </div>
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+
+             <!-- Update Modal -->
+             <div class="modal" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Employee</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/newuser" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                        
+                                        <option selected value="Fulltime">Fulltime</option>
+                                        <option value="PartTime">Contract</option>
+                                        
+                                      </select>
+                                </div>
+                                <!-- <div class="col">
+                                    <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                        
+                                        <option selected value="worker">Worker</option>
+                                        <option value="test period">Test period</option>
+                                        
+                                      </select>
+                                </div> -->
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                </div>
+                                
+                            </div>
+                            <div class="input-group mt-3">
+                                <select class="form-select" name="employeeRole" aria-label="Default select example" required>
+                                        
+                                    <option selected value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    
+                                  </select>
+                            </div>
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                   
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+                    </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+    `
+    display.innerHTML = temp
+})
+purchasesBtn.addEventListener('click',()=>{ 
+    temp = `
+    <div class="org"></div>
+    <div class="payments">
+   
+
+    <div class="container purchases">
+        <div class="payments-header">
+            <h3>Purchases</h3>
+            <div class="search-bar">
+                <input type="text" class="search" placeholder="search">
+                <i class="bi bi-search"></i>
+                
+            </div>
+        </div>
+        <div class="payment-card">
+            <ul class="header">
+                <li >Ref Code</li>
+                <li>Number</li>
+                <li>Amount</li>
+                <li>Time</li>
+            </ul>
+            <div class="data-card">
+                <ul class="data ">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+                <ul class="data">
+                    <li>RK13NUOO39</li>
+                    <li>0712345678</li>
+                    <li>30</li>
+                    <li>11:30 am</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+    `
+    display.innerHTML = temp
+})
+profilesBtn.addEventListener('click',()=>{
+    temp = `
+    <div class="org"></div>
+    <div class="payments">
+   
+
+        <div class="container purchases">
+            <div class="payments-header">
+                <h3>Profile</h3>
+                <button class="btn bg-primary text-white" data-bs-toggle="modal" data-bs-target="#add-employee"><i class="bi bi-plus"></i> Add</button>
+
+            </div>
+            <div class="payment-card">
+                <ul class="header">
+                    <li class="others" >id</li>
+                    <li class="prof-name">Name</li>
+                    <li class="prof-type">Type</li>
+                    <li class="others">Amount</li>
+                    <li class="others">Station</li>
+                    <li class="others">Devices</li>
+                </ul>
+                <div class="data-card">
+                    <ul class="data ">
+                        <li class="others">1</li>
+                        <li class="prof-name">Moderate Daily Unlimited for 50sh</li>
+                        <li class="prof-type">WIFI</li>
+                        <li class="others">50</li>
+                        <li class="others">1</li>
+                        <li class="others">1</li>
+
+                    </ul>
+                </div>
+    
+            </div>
+            <div class="modal  mt-5" id="add-employee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Profile</h5>
+                    <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="post">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="name" placeholder="Name" required >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="type" placeholder="Type" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="amount" placeholder="Amount" required >
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" name="station" placeholder="Station" required >
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input type="number" class="form-control" name="devices" placeholder="Devices" required >
+
+                                </div>
+                            </div>
+
+                            <div class="input-group mt-3 hover">
+                                <input type="submit" class="btn form-control bg-primary" value="Submit">
+                            </div>
+                        </form>
+                
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--  end of modal -->
+    
+        </div>
+    </div>
+    `
+    display.innerHTML = temp
+})
 customersBtn.addEventListener('click',()=>displayToDOM(analytics))
-helpBtn.addEventListener('click',()=>displayToDOM(analytics))
-inboxBtn.addEventListener('click',()=>displayToDOM(analytics))
+helpBtn.addEventListener('click',()=>
+    {
+        temp = `
+        <div class="org ">
+                
+        </div>
+        <div class="coming-soon">
+            <div class="container">
+                <div class="image animate">
+                    <img src="./public/img/comingsoon.png" alt="">
+                </div>
+    
+            </div>
+            <h4 class="animate">This feature will be Available soon</h4>
+    
+        </div>
+        
+        `
+        display.innerHTML =temp
+    }
+)
+inboxBtn.addEventListener('click',()=>{
+    temp = `
+    <div class="org">
+            
+    </div>
+    <div class="coming-soon">
+        <div class="container">
+            <div class="image animate">
+                <img src="./public/img/comingsoon.png" alt="">
+            </div>
+
+        </div>
+        <h4 class="animate">This feature will be Available soon</h4>
+
+    </div>
+    
+    `
+    display.innerHTML =temp
+})
 
 
 
 // ?chart
-
-const dailybtn = document.querySelector('#daily')
-const monthlybtn = document.querySelector('#monthly')
-const weeklybtn = document.querySelector('#weekly')
-
-const ctx = document.getElementById('myChart').getContext('2d');
-let gradient =ctx.createLinearGradient(0,0,0,400)
-gradient.addColorStop(0,'rgba(0,88,255,1)')
-gradient.addColorStop(0,'rgba(0,88,255,0.3)')
-let delayed;
-let Display =false
-
-dailybtn.addEventListener('click',()=>{
-    
-})
-const labels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-]
-const data = {
-    labels,
-    datasets:[{
-        data:[212,326,165,345,763,567,123,985,235,356,933,344],
-        label: "Monthly Sales",
-        fill:true,
-        backgroundColor:gradient,
-        pointBackgroundColor:'#fff',
-        tension:0.3
-        // borderColor:'#555',
-
-
-    }]
-
-}
-const config = {
-    type:'line',
-    data:data,
-    options:{
-        responsive:true,
-        grid:{
-            display:Display
-
-        },
-        animation: {
-            onComplete: ()=>{
-                delayed = true
-            },
-            delay: (context)=>{
-                let delay = 0;
-                if(context.type ==="data" && context.mode == "default" && !delayed){
-                    delay = context.dataIndex*300 + context.datasetIndex * 100;
-                }
-                return delay
-            }
-        },
-        scales:{
-            y:{
-                ticks:{
-                    callback:function(value){
-                        return '$' + value + "m"
-                    }
-                }
-            }
-        }
-    }
-}
-const myChart = new Chart(ctx,config)
-
-
 
