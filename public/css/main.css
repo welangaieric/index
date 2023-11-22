@@ -839,6 +839,7 @@ legend{
     top: 0px;
     right: 0px;
     z-index: 1;
+    display: none;
 
 
 }
@@ -1006,6 +1007,7 @@ legend{
     .circles{
         width: 500px;
         height: 500px;
+        display: initial;
     }
     .hero h1{
         font-size: 32px;

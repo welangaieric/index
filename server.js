@@ -10,7 +10,7 @@ const employeeContr = require('./controllers/employees')
 const clientCtrl = require('./controllers/clients')
 const profileCtrl = require('./controllers/profiles')
 const transactionCtrl = require('./controllers/transactions')
-
+const pageroutes = require('./routes/pageroutes')
 
 //server 
 db.query('select 1')
@@ -27,7 +27,7 @@ db.query('select 1')
 
 // middlewares 
 app.use(express.static('public'))
-app.set('views','ejs')
+app.set('view engine','ejs')
 app.use(express.json());
 app.use(bodyParser.json())
 app.use(morgan('dev'))// setup the logger
@@ -35,6 +35,7 @@ app.use('/api/employees',employeeContr)
 app.use('/api/clients',clientCtrl)
 app.use('/api/profiles',profileCtrl)
 app.use('/api/transactions',transactionCtrl)
+app.use(pageroutes)
 app.use((err,req,res,next)=>{
     console.log(err)
     res.status(err.status || 500).send('someting went wrong')
