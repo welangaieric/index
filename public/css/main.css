@@ -676,7 +676,116 @@ legend{
     width: 50%;
     height: 100%;
 }
+.fixed{
+    background-color: var(--white);
+    margin-top: 30px;
+    padding: 10px;
+    display: flex;
+    /* height: 85vh; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
 
+}
+.clients{
+    width: 90%;
+    /* border: var(--light-grey) 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 10px;
+    /* height: 70vh; */
+
+}
+.client-card{
+    width: 100%;
+    border: var(--light-grey) 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+
+}
+.history-card{
+    width: 90%;
+    height: 40px;
+    border: var(--light-grey) 1px solid;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.history-card p{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.client-card-header{
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: var(--light-grey) solid 1px; */
+    margin: 0;
+    padding: 0;
+    font-size: .8em;
+    
+
+
+}
+.client-card-header th{
+    width: 30%;
+    padding: 7px;
+    text-align: left;
+}
+.client-card-header td{
+    text-align: left;
+}
+.client-card-header li{
+    font-weight: bold;
+    padding: 10px;
+    font-size: .8em;
+}
+
+
+.client-card-actions{
+    width: 20%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: var(--light-grey) solid 1px; */
+    margin: 0;
+    gap: 5px;
+
+
+}
+.client-card-actions a{
+    width: 90%;
+    font-size: .9em;
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.error{
+    background-color: var(--red);
+    color: var(--white);
+}
+.success{
+    background-color: var(--green);
+    color: var(--white);
+}
 @media screen and (min-width:768px) {
  
     .data{
@@ -762,7 +871,7 @@ legend{
     }
     .payments-header
     {
-        
+
         flex-direction: row;
         justify-content: space-between;
     }

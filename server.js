@@ -1,47 +1,43 @@
 const express = require('express')
 require('dotenv').config({})
 const morgan = require('morgan')
-// var path = require('path')
-// var rfs = require('rotating-file-stream')
-const mysql = require('mysql2')
-const port = process.env.port
+require('express-async-errors')
+var bodyParser = require('body-parser')
+const PORT = process.env.port
 const app = express()
-
-
-
-// configurations
-const pool = mysql.createPool({
-    host:'212.224.93.159',
-    user:'radius',
-    password:'konnekted@2023',
-    database:'radius'
-}).promise()
-// dotenv.config({})
-
-const getTransactions = async function(){
-    const connection = pool.connect((err)=>{
-        if (err ) throw err
-        console.log('connected')
-    })
-    
-    // const [rows] = await pool.query('SELECT * FROM transactions')
-    return connection;
-}
-
-   
-// db middleware 
+const db = require('./db')
+const employeeContr = require('./controllers/employees')
+const clientCtrl = require('./controllers/clients')
+const profileCtrl = require('./controllers/profiles')
+const transactionCtrl = require('./controllers/transactions')
 
 
 //server 
-app.listen(port,()=>{
-    console.log(`app running on port ${port}`)
+db.query('select 1')
+.then(()=>{
+    app.listen(PORT,()=>{
+        console.log(`app running on port ${PORT}`)
+    })
 })
+.catch((err) => {
+    console.error('Error connecting to the database:', err.message);
+})
+
+
 
 // middlewares 
 app.use(express.static('public'))
 app.set('views','ejs')
-app.use(morgan('combined'))// setup the logger
-
-app.get('/',getTransactions,(req,res)=>{
-    res.send(connection)
+app.use(express.json());
+app.use(bodyParser.json())
+app.use(morgan('dev'))// setup the logger
+app.use('/api/employees',employeeContr)
+app.use('/api/clients',clientCtrl)
+app.use('/api/profiles',profileCtrl)
+app.use('/api/transactions',transactionCtrl)
+app.use((err,req,res,next)=>{
+    console.log(err)
+    res.status(err.status || 500).send('someting went wrong')
 })
+
+
