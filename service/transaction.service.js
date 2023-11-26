@@ -8,7 +8,7 @@ module.exports.getAlltransactions = async()=>{
 
 
 module.exports.gettransactionById = async(id)=>{
-    const [record] =  await db.query("select * from transactions where id= ?",[id])
+    const [record] =  await db.query("select * from transactions where code= ?",[code])
     return record
 }
 

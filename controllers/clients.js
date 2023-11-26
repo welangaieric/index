@@ -10,10 +10,10 @@ router.get('/',async (req,res)=>{
     
     res.send(allclients)
 })
-router.get('/:id',async (req,res)=>{
-    let client = await clientService.getClientById(req.params.id)
+router.get('/:username',async (req,res)=>{
+    let client = await clientService.getClientById(req.params.username)
     if(client.length == 0 )
-        res.send(404).json('no record with given id :'+ req.params.id)
+        res.send(404).json('no record with given id :'+ req.params.username)
     else{
         res.send(client)
     }

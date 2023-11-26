@@ -10,14 +10,7 @@ router.get('/',async (req,res)=>{
     
     res.send(allprofiles)
 })
-router.get('/:id',async (req,res)=>{
-    let profile = await profileService.getprofileById(req.params.id)
-    if(profile.length == 0 )
-        res.send(404).json('no record with given id :'+ req.params.id)
-    else{
-        res.send(profile)
-    }
-})
+
 router.delete('/:id',async (req,res)=>{
     let affectedRows= await profileService.deleteprofile(req.params.id)
     if(!affectedRows )

@@ -10,8 +10,8 @@ router.get('/',async (req,res)=>{
     
     res.send(alltransactions)
 })
-router.get('/:id',async (req,res)=>{
-    let transaction = await transactionService.gettransactionById(req.params.id)
+router.get('/:code',async (req,res)=>{
+    let transaction = await transactionService.gettransactionById(req.params.code)
     if(transaction.length == 0 )
         res.send(404).json('no record with given id :'+ req.params.id)
     else{

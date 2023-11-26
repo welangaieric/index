@@ -7,8 +7,8 @@ module.exports.getAllclients = async()=>{
     }
 
 
-module.exports.getClientById = async(id)=>{
-    const [record] =  await db.query("select * from ppp_clients where id= ?",[id])
+module.exports.getClientById = async(username)=>{
+    const [record] =  await db.query("select * from ppp_clients where username= ?",[username])
     return record
 }
 
