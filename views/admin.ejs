@@ -1,32 +1,5 @@
 <%- include('./partials/header.ejs')%>
-        <div class="nav-head">
-            <div class="brand">
-                <h4>Konnekt Smartlife</h4>
-                <i class="bi bi-list" id="togglebtn"></i>
-            </div>
-            <div class="profile">
-                <div class="avatar">
-                    <img src="/img/avatar.png" alt="">
-                </div>
-                <div class="profile-name">
-                    <p><%=data.firstName+' '+data.lastName%></p>
-                </div>
-            </div>
-        </div>  
-    <header class="">
-        <nav>
-            <ul>
-                <%- include('./nav/analytics.ejs')%>
-                <%- include('./nav/employees.ejs')%>
-                <%- include('./nav/inbox.ejs')%>
-                <%- include('./nav/fixedCust.ejs')%>
-                <%- include('./nav/packages.ejs')%>
-                <%- include('./nav/purchases.ejs')%>
-                <%- include('./nav/help.ejs')%>
-                <%- include('./nav/logout.ejs')%>
-            </ul>
-        </nav>
-    </header>
+<%- include('./partials/nav.ejs')%>
     <input type="text" hidden id="admin_id" value="<%=data.id%>">
     <div class="container-fluid wrapper loaderdiv" id="dispAnn">
         <div class="loader">

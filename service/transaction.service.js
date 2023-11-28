@@ -2,7 +2,7 @@ const db = require('../db')
 
 
 module.exports.getAlltransactions = async()=>{
-        const [records] =  await db.query("select * from transactions")
+        const [records] =  await db.query("SELECT * FROM transactions WHERE date >= CURRENT_DATE - INTERVAL 20 DAY;")
         return records
     }
 

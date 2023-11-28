@@ -1,7 +1,5 @@
 const express = require('express')
 const axios = require('axios')
-const { json } = require('body-parser')
-const { SuperfaceClient } = require('@superfaceai/one-sdk');
 
 const router = express.Router()
 
@@ -35,7 +33,7 @@ router.post('/api/login/',async (req,res)=>{
     .then((data)=>{
         result = data.data
         let [employee] =result
-        console.log(employee)
+        
         
         if(employee.id === id && employee.password == password ){
             if(employee.userType === 'admin') {

@@ -45,19 +45,12 @@ body{
     /* border: #0058ff solid; */
     
 }
-header{
-   position: absolute;
-   top: 0;
-   left: 0;
-    height: 100vh;
-    z-index: 10;
-    width: 0%;
+.offcanvas-body{
+ 
     padding: 15px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    background-color: var(--white);
-    display: none;
+    align-items: center;
 
 
 }
@@ -132,14 +125,14 @@ header{
 .bi{
     font-size: var(--black);
 }
-nav{
+.offcanvas-body{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-nav ul{
+.offcanvas-body ul{
     width: 100%;
     height: 100%;
     /* gap: 5px; */
@@ -148,7 +141,7 @@ nav ul{
     display: flex;
     flex-direction: column;
 }
-nav li{
+.offcanvas-body li{
     list-style: none;
     width: 100%;
     height: 50px;
@@ -161,11 +154,10 @@ nav li{
      /* background-color: var(--light-grey); */
 }
 
-nav li:hover{
+.offcanvas-body li:hover{
      background-color: var(--light-grey);
-    
 }
-nav li span{
+.offcanvas-body li span{
     width: 20px;
     height: 20px;
     display: flex;
